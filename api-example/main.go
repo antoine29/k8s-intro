@@ -31,6 +31,11 @@ func main() {
 
 		w.Write(json_response)
 	})
+	
+  http.HandleFunc("/api/pong", func(w http.ResponseWriter, req *http.Request) {
+    slog.Error("Not implemented yet")
+    os.Exit(1)
+	})
 
 	slog.Info(fmt.Sprintf("Listening on: %s \n", port))
 	http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
