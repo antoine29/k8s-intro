@@ -43,16 +43,6 @@ func main() {
 		w.Write(json_response)
 	})
 	
-  http.HandleFunc("/api/pong", func(w http.ResponseWriter, req *http.Request) {
-    slog.Info("pong received")
-    json_response, _ := json.Marshal(response{
-			Message: "ping",
-			Code:    http.StatusOK,
-		})
-
-		w.Write(json_response)
-	})
-
 	slog.Info(fmt.Sprintf("Listening on: %s \n", port))
 	http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 }
