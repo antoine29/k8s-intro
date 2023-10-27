@@ -302,8 +302,8 @@ curl -o config http://sprunge.us/Rff2Xe
 
 
 docker run -d \
-    -v /home/anthony/test:/web \
-    -p 8080:8080 \
-    halverneus/static-file-server:latest
+  -v /home/antoine/k8s-intro/manifests:/web \
+  -p 8083:8080 \
+  halverneus/static-file-server:latest
 
 $ kubectl create service nodeport api --tcp=8080 --node-port=30001
