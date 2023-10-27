@@ -9,9 +9,9 @@ import (
 )
 
 type response struct {
-	Message string `json:"message"`
-	Code    int    `json:"code"`
-	ApiVersion    string    `json:"api_version"`
+	Message    string `json:"message"`
+	Code       int    `json:"code"`
+	ApiVersion string `json:"api_version"`
 }
 
 func main() {
@@ -22,19 +22,19 @@ func main() {
 	}
 
 	http.HandleFunc("/api/ping", func(w http.ResponseWriter, req *http.Request) {
-    slog.Info("ping received")
+		slog.Info("ping received")
 		json_response, _ := json.Marshal(response{
-			Message: "pong",
-			Code:    http.StatusOK,
-      ApiVersion: "v2",
+			Message:    "pong",
+			Code:       http.StatusOK,
+			ApiVersion: "v2",
 		})
 
 		w.Write(json_response)
 	})
-	
-  http.HandleFunc("/api/pong", func(w http.ResponseWriter, req *http.Request) {
-    slog.Error("Not implemented yet")
-    os.Exit(1)
+
+	http.HandleFunc("/api/pong", func(w http.ResponseWriter, req *http.Request) {
+		slog.Error("Not implemented yet")
+		os.Exit(1)
 	})
 
 	slog.Info(fmt.Sprintf("Listening on: %s \n", port))
