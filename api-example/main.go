@@ -9,9 +9,9 @@ import (
 )
 
 type response struct {
-	Message string `json:"message"`
-	Code    int    `json:"code"`
-	ApiVersion    string    `json:"api_version"`
+	Message    string `json:"message"`
+	Code       int    `json:"code"`
+	ApiVersion string `json:"api_version"`
 }
 
 func main() {
@@ -22,11 +22,11 @@ func main() {
 	}
 
 	http.HandleFunc("/api/ping", func(w http.ResponseWriter, req *http.Request) {
-    slog.Info("ping received")
+		slog.Info("ping received")
 		json_response, _ := json.Marshal(response{
-			Message: "pong",
-			Code:    http.StatusOK,
-      ApiVersion: "v1",
+			Message:    "pong",
+			Code:       http.StatusOK,
+			ApiVersion: "v1",
 		})
 
 		w.Write(json_response)
