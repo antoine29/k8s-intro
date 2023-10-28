@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api
-  namespace: default
+  namespace: anthony
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ghcr.io/antoine29/api:v1
+          image: ghcr.io/antoine29/api:v2
           env:
           - name: PORT
             value: "8080"
